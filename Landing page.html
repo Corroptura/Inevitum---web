@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inevitum | Sovereign Defence & Strategic Services</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Montserrat:wght@800&display=swap');
+        
+        body { background-color: #0f1113; color: #e5e7eb; font-family: 'Inter', sans-serif; overflow-x: hidden; }
+        .hero-gradient { background: linear-gradient(135deg, #0f1113 0%, #1c252e 100%); }
+        .accent-text { color: #c5a059; font-family: 'Montserrat', sans-serif; }
+        .card { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(197, 160, 89, 0.2); transition: all 0.3s ease; }
+        .card:hover { border-color: #c5a059; background: rgba(197, 160, 89, 0.05); }
+    </style>
+</head>
+<body>
+
+    <nav class="fixed w-full z-50 px-8 py-6 flex justify-between items-center bg-opacity-90 backdrop-blur-md">
+        <div class="text-2xl font-bold tracking-tighter accent-text">INEVITUM</div>
+        <div class="space-x-8 hidden md:block text-sm uppercase tracking-widest">
+            <a href="#about" class="hover:text-[#c5a059]">About</a>
+            <a href="#capabilities" class="hover:text-[#c5a059]">Capabilities</a>
+            <a href="#sectors" class="hover:text-[#c5a059]">Sectors</a>
+            <a href="#contact" class="px-5 py-2 border border-[#c5a059] accent-text hover:bg-[#c5a059] hover:text-black transition">Contact</a>
+        </div>
+    </nav>
+
+    <section class="h-screen flex items-center justify-center px-8 hero-gradient relative">
+        <div class="text-center z-10">
+            <h1 id="hero-title" class="text-6xl md:text-8xl font-extrabold mb-4 opacity-0 leading-none">
+                SOVEREIGN <br><span class="accent-text">CAPABILITY.</span>
+            </h1>
+            <p id="hero-sub" class="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto opacity-0">
+                Veteran Indigenous owned. 20+ years of excellence in Defence, ISR, and Narrowband Satellite systems.
+            </p>
+        </div>
+        <div class="absolute inset-0 opacity-20 pointer-events-none overflow-hidden">
+            <div id="orb" class="absolute w-[600px] h-[600px] rounded-full bg-[#c5a059] blur-[120px] -top-20 -right-20"></div>
+        </div>
+    </section>
+
+    <section id="capabilities" class="py-24 px-8 max-w-7xl mx-auto">
+        <h2 class="text-3xl font-bold mb-16 border-l-4 border-[#c5a059] pl-6 uppercase tracking-wider">Expertise</h2>
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="card p-8 reveal">
+                <h3 class="accent-text text-xl mb-4 uppercase font-bold">ISR Platforms</h3>
+                <p class="text-gray-400">Specialised expertise in Intelligence, Surveillance, and Reconnaissance for Air Force platforms.</p>
+            </div>
+            <div class="card p-8 reveal">
+                <h3 class="accent-text text-xl mb-4 uppercase font-bold">Narrowband SATCOM</h3>
+                <p class="text-gray-400">Leading ICT programs focusing on resilient Narrowband satellite systems for remote operations.</p>
+            </div>
+            <div class="card p-8 reveal">
+                <h3 class="accent-text text-xl mb-4 uppercase font-bold">Strategic ICT</h3>
+                <p class="text-gray-400">Deep lifecycle experience in major Defence programs and government technology infrastructure.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="sectors" class="py-24 bg-[#161a1d]">
+        <div class="max-w-7xl mx-auto px-8">
+            <div class="flex flex-wrap items-center">
+                <div class="w-full md:w-1/2 mb-12 md:mb-0">
+                    <h2 class="text-5xl font-bold mb-6">Serving the <br><span class="accent-text">Critical Frontlines.</span></h2>
+                    <ul class="space-y-4 text-xl">
+                        <li class="flex items-center space-x-3"><span class="w-2 h-2 bg-[#c5a059]"></span> <span>Australian Defence Force</span></li>
+                        <li class="flex items-center space-x-3"><span class="w-2 h-2 bg-[#c5a059]"></span> <span>Federal Government</span></li>
+                        <li class="flex items-center space-x-3"><span class="w-2 h-2 bg-[#c5a059]"></span> <span>Energy & Mining</span></li>
+                    </ul>
+                </div>
+                <div class="w-full md:w-1/2">
+                    <div class="h-80 bg-gray-800 rounded-lg overflow-hidden relative">
+                         <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80')] bg-cover bg-center grayscale hover:grayscale-0 transition duration-700"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" class="py-12 px-8 border-t border-gray-800 text-center">
+        <p class="text-gray-500 mb-4 font-bold uppercase tracking-widest">Inevitum Pty Ltd</p>
+        <p class="text-sm text-gray-600 italic mb-8">Acknowledging the Traditional Custodians of the lands on which we work.</p>
+        <div class="text-[#c5a059] underline decoration-1 underline-offset-8">connect@inevitum.com</div>
+    </footer>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Hero Entrance
+        const tl = gsap.timeline();
+        tl.to("#hero-title", { opacity: 1, y: -20, duration: 1, ease: "power4.out", delay: 0.5 })
+          .to("#hero-sub", { opacity: 1, y: -10, duration: 1, ease: "power3.out" }, "-=0.5");
+
+        // Orb Movement
+        gsap.to("#orb", {
+            x: -100,
+            y: 100,
+            duration: 8,
+            repeat: -1,
+            yoyo: true,
+            ease: "sine.inOut"
+        });
+
+        // Scroll Reveals
+        gsap.utils.toArray(".reveal").forEach(elem => {
+            gsap.from(elem, {
+                scrollTrigger: {
+                    trigger: elem,
+                    start: "top 85%",
+                },
+                y: 50,
+                opacity: 0,
+                duration: 1,
+                ease: "power2.out"
+            });
+        });
+    </script>
+</body>
+</html>
